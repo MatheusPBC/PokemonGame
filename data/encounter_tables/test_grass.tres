@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EncounterTableResource" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/EncounterTableResource.gd" id="1_3mbf8"]
+[ext_resource type="Script" path="res://scripts/data/EncounterEntryResource.gd" id="2_2q17l"]
+
+[sub_resource type="Resource" id="Resource_wild_1"]
+script = ExtResource("2_2q17l")
+species_id = "bulbasaur"
+weight = 100
+min_level = 3
+max_level = 5
+
+[resource]
+script = ExtResource("1_3mbf8")
+id = "test_grass"
+entries = [SubResource("Resource_wild_1")]
+

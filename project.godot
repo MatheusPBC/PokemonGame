@@ -11,8 +11,38 @@ config_version=5
 [application]
 
 config/name="Pokemon"
+run/main_scene="res://scenes/overworld/Overworld.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://scripts/autoload/SceneManager.gd"
+GameState="*res://scripts/autoload/GameState.gd"
+DataRegistry="*res://scripts/autoload/DataRegistry.gd"
+
+[input]
+
+move_up={
+"deadzone": 0.5,
+"events": []
+}
+move_down={
+"deadzone": 0.5,
+"events": []
+}
+move_left={
+"deadzone": 0.5,
+"events": []
+}
+move_right={
+"deadzone": 0.5,
+"events": []
+}
+interact={
+"deadzone": 0.5,
+"events": []
+}
 
 [physics]
 

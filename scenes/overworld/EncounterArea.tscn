@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/overworld/EncounterArea.gd" id="1_311kq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grass"]
+size = Vector2(120, 80)
+
+[node name="EncounterArea" type="Area2D"]
+script = ExtResource("1_311kq")
+encounter_table_id = "test_grass"
+monitoring = true
+monitorable = true
+
+[node name="DebugGrass" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-60, -40, 60, -40, 60, 40, -60, 40)
+color = Color(0.352941, 0.72549, 0.301961, 0.4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_grass")
+

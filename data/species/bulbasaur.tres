@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PokemonSpeciesResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/PokemonSpeciesResource.gd" id="1_tou1v"]
+
+[resource]
+script = ExtResource("1_tou1v")
+id = "bulbasaur"
+display_name = "Bulbasaur"
+types = ["grass", "poison"]
+base_hp = 45
+base_atk = 49
+base_def = 49
+base_spa = 65
+base_spd = 65
+base_spe = 45
+

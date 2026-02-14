@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/overworld/OverworldController.gd" id="1_ctm5x"]
+[ext_resource type="PackedScene" path="res://scenes/overworld/Player.tscn" id="2_vc7q1"]
+[ext_resource type="PackedScene" path="res://scenes/overworld/NPC.tscn" id="3_uk6rl"]
+[ext_resource type="PackedScene" path="res://scenes/overworld/Sign.tscn" id="4_o0xxy"]
+[ext_resource type="PackedScene" path="res://scenes/overworld/EncounterArea.tscn" id="5_4g7dx"]
+[ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="6_nlyh3"]
+[ext_resource type="Script" path="res://scripts/overworld/EncounterService.gd" id="7_l4u7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
+size = Vector2(40, 24)
+
+[node name="Overworld" type="Node2D"]
+script = ExtResource("1_ctm5x")
+player_path = NodePath("Player")
+dialogue_box_path = NodePath("DialogueBox")
+
+[node name="Ground" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-220, -150, 220, -150, 220, 150, -220, 150)
+color = Color(0.2, 0.564706, 0.243137, 1)
+
+[node name="GrassPatch" parent="." instance=ExtResource("5_4g7dx")]
+position = Vector2(70, 20)
+
+[node name="RockWall" type="StaticBody2D" parent="."]
+position = Vector2(130, -10)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Visual" type="Polygon2D" parent="RockWall"]
+polygon = PackedVector2Array(-20, -12, 20, -12, 20, 12, -20, 12)
+color = Color(0.439216, 0.439216, 0.439216, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RockWall"]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="Player" parent="." instance=ExtResource("2_vc7q1")]
+position = Vector2(-100, 0)
+
+[node name="NPC" parent="." instance=ExtResource("3_uk6rl")]
+position = Vector2(-20, -30)
+
+[node name="Sign" parent="." instance=ExtResource("4_o0xxy")]
+position = Vector2(-60, 40)
+
+[node name="EncounterService" type="Node" parent="."]
+script = ExtResource("7_l4u7f")
+player_path = NodePath("../Player")
+step_tracker_path = NodePath("../Player/StepTracker")
+
+[node name="DialogueBox" parent="." instance=ExtResource("6_nlyh3")]
+
